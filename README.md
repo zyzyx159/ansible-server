@@ -1,8 +1,9 @@
 # ansible-server
+
 ansible playbook to make server change
 
-# ToDo: 
+# ToDo:
 
-install nodejs, npm
-sudo npm install -g dockly
-sudo apt-get install python3 g++ make python3-pip
+. curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
+. install nodejs, npm, python3, g++, make, python3-pip
+. sudo npm install -g dockly
