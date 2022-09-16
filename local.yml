@@ -21,9 +21,12 @@
           - python3-pip
           - apt-transport-https
           - docker-ce
+          - tmux
         state: latest
     - name: add zyzyx to docker group
       user:
         name: "zyzyx"
         groups: docker
         append: yes
+    - name: install dockly
+      shell: npm install -g dockly
