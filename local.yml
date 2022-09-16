@@ -1,6 +1,16 @@
 ---
-
 - hosts: all
   become: yes
   tasks:
-  - name: 
+    - name: nodejs repository
+      shell: curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
+    - name: install base apps
+      apt:
+        name:
+          - nodejs
+          - npm
+          - python3
+          - g++
+          - make
+          - python3-pip
+        state: latest
