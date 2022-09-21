@@ -30,3 +30,7 @@
         append: yes
     - name: install dockly
       shell: npm install -g dockly
+    - name: get tmux config
+      get_url:
+        url: https://gist.githubusercontent.com/zyzyx159/a2ea9f3a5b5a627e4b0129a00f44d2f8/raw/
+        dest: /home/zyzyx/.tmux.conf
