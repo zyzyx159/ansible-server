@@ -1,8 +1,5 @@
 # ansible-server
-ansible playbook to make server change
 
-# ToDo: 
+ansible playbook to install server apps.
 
-install nodejs, npm
-sudo npm install -g dockly
-sudo apt-get install python3 g++ make python3-pip
+ansible-pull -U https://github.com/zyzyx159/ansible-server.git -i "$(hostname --short)," --ask-become-pass
