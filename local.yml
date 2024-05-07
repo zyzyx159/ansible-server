@@ -2,12 +2,6 @@
 - hosts: all
   become: yes
   tasks:
-    - name: nodejs repository
-      shell: curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
-    - name: docker GPG keys
-      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    - name: add docker repository
-      shell: echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     - name: update
       apt:
         update_cache: yes
@@ -20,8 +14,7 @@
           - make
           - python3-pip
           - apt-transport-https
-          - docker-ce
-          - tmux
+          - docker
         state: latest
     - name: add zyzyx to docker group
       user:
@@ -30,7 +23,3 @@
         append: yes
     - name: install dockly
       shell: npm install -g dockly
-    - name: get tmux config
-      get_url:
-        url: https://gist.githubusercontent.com/zyzyx159/a2ea9f3a5b5a627e4b0129a00f44d2f8/raw/
-        dest: /home/zyzyx/.tmux.conf
