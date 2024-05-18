@@ -12,6 +12,7 @@
           - python3
           - g++
           - make
+          - npm
           - python3-pip
           - apt-transport-https
           - docker
