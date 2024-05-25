@@ -2,14 +2,6 @@
 - hosts: all
   become: yes
   tasks:
-    - name: Add Docker GPG key
-      apt_key:
-        url: https://download.docker.com/linux/debian/gpg
-        state: present
-    - name: Add Docker repository
-      apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable
-        state: present
     - name: update
       apt:
         update_cache: yes
@@ -23,7 +15,11 @@
           - npm
           - python3-pip
           - apt-transport-https
-          - docker
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
         state: latest
     - name: add zyzyx to docker group
       user:
